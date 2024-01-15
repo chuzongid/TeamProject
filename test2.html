@@ -1,29 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 슬라이더 컨테이너 스타일 */
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+    }
 
+    /* 이미지 슬라이더 스타일 */
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease; /* 이미지 전환 애니메이션 속성 */
+    }
 
-    <!--jquery-->
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<!--bootstrap-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    /* 각 이미지 스타일 */
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="./static/css/test2.css">
-<script src="./static/javascript/test.js"></script>
+    /* 이전/다음 버튼 스타일 */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -30px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 3px;
+      user-select: none;
+    }
 
+    /* 오른쪽에 위치한 다음 버튼 스타일 */
+    .next {
+      right: 0;
+    }
+
+    /* 버튼에 호버 효과 */
+    .prev:hover, .next:hover {
+      background-color: #2980b9;
+    }
+  </style>
 </head>
 <body>
-    <header class="topBar" style="opacity:1;">
-    <a href="test.html" class="topLogo">
-        s
-        <span class="logoCircle"></span>
-        laria
-    </a>
-    </header>
-    <main></main>
-    <footer></footer>
+
+<!-- 이미지 슬라이더 컨테이너 -->
+<div class="slider-container">
+  <!-- 이미지 슬라이더 -->
+  <div class="slider">
+    <!-- 각 이미지 슬라이드 -->
+    <div class="slide">
+      <img src="./static/images/slied_image1.avif" alt="Slide 1">
+    </div>
+
+    <div class="slide">
+      <img src="./static/images/slied_image2.avif" alt="Slide 2">
+    </div>
+
+    <div class="slide">
+      <img src="./static/images/slied_image3.avif" alt="Slide 3">
+    </div>
+  </div>
+
+  <!-- 이전/다음 버튼 -->
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<script>
+  let slideIndex = 1;
+
+  function showSlides() {
+    let slides = document.querySelector('.slider');
+    let slidesArray = document.querySelectorAll('.slide');
+
+    if (slideIndex > slidesArray.length) {
+      slideIndex = 1;
+    }
+
+    if (slideIndex < 1) {
+      slideIndex = slidesArray.length;
+    }
+
+    slides.style.transform = `translateX(${-100 * (slideIndex - 1)}%)`;
+  }
+
+  function changeSlide(n) {
+    slideIndex += n;
+    showSlides();
+  }
+
+  // 이미지 자동 슬라이드 설정 (2초 간격)
+  setInterval(function() {
+    changeSlide(1);
+  }, 2000);
+
+  // 초기 슬라이드 표시
+  showSlides();
+</script>
+
 </body>
 </html>

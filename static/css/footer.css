@@ -1,0 +1,25 @@
+/*하단------------------------------------------------------------------------------------*/
+.service_info{
+    height:50px;
+    border-top:1px solid rgb(184, 184, 184);
+    border-bottom:1px solid rgb(184, 184, 184);
+}
+.service_info ul li, .service_info ul li a{
+    list-style:none;
+    text-decoration:none;
+    color:black;
+    font-size:12px;
+}
+.company_info{
+    width:100%;
+    height:150px;
+    background:rgb(231, 231, 231);
+    display:flex;
+    justify-content:center;
+}
+.c_info p{
+    font-size:11px;
+    color:rgb(90, 90, 90);
+    font-family:"맑은 고딕";
+    margin-left:10px;
+}
