@@ -1,5 +1,17 @@
 $(function(){
 
+
+    // 검색창
+    $(document).on('click',function(e){
+        if(!$(e.target).closest('.header_search').length){
+            $(".ant-input-affix").css("border-color","#f5f6f6");
+        }
+    });
+    
+    $(".header_search").click(function(){
+        $(".ant-input-affix").css("border","2px solid #00D7B9");
+    });
+    
     // main > main1 > 슬라이드 이동------------------------------------------------------------------------------------
         let count=0;
         let pgnum=1;
@@ -42,11 +54,8 @@ $(function(){
             slider.style.transform = `translateX(${-count * 100}%)`; // 페이지 전환 위치
         }
     
-        // setInterval(nextSlide, 5000);
+        setInterval(nextSlide, 10000);
     
         $(".slide_bt_right").on("click", nextSlide); // 페이지 오른쪽 버튼
         $(".slide_bt_left").on("click", prevSlide); // 페이지 왼쪽 버튼
     });
-
-
-    
