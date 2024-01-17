@@ -1,14 +1,18 @@
 /*-------------------------------------------------------------------------------*/
 main{
   width:100%;
-  height:3000px;
+  height:3600px;
   }
 .slide_img_사진{
     background-size:cover;
 }
+img{
+  width:100%;
+  height:100%;
+}
 
   /* ------------------------------------------------------------ */
-  img{
+  .item img{
     width:100%;
     height:100%;
   }
@@ -135,4 +139,62 @@ main{
 .main2_item img{
     width:100%;
     height:200px;
+}
+/* ------------------------------------------------------------------------------------ */
+.recommend{
+  width:100%;
+  height:400px;
+  /* background:pink; */
+}
+.recommend_container{
+  width:1200px;
+  height:100%;
+  margin:auto;
+}
+.title{
+  margin:30px 0;
+}
+.recommend_items{
+  width:100%;
+  height:100%;
+  display:grid;
+  padding:20px;
+}
+.recommend_item{
+  padding:10px;
+  position:relative;
+}
+.recommend_item:hover{
+  cursor:pointer;
+  opacity:0.5;
+}
+.recommend_item:nth-child(1){
+  grid-column:1/2;
+  grid-row:1/3; 
+}
+.recommend_item:nth-child(2){
+  grid-column:2/3;
+  grid-row:1/2;
+}
+.recommend_item:nth-child(3){
+  grid-column:3/4;
+  grid-row:1/2;
+}
+.recommend_item:nth-child(4){
+  grid-column:2/3;
+  grid-row:2/3;
+}
+.recommend_item:nth-child(5){
+  grid-column:3/4;
+  grid-row:2/3;
+}
+#recommend_tag{
+  position:absolute;
+  bottom:5%;
+  left:7%;
+  color:beige;
+}
+.recommend_item img{
+  border-radius:10px;
+  
 }
